@@ -41,36 +41,6 @@ function sendResponse(recipeData, res) {
 }
 
 
-function parseData(apiResponse, res) {
-  let recipeData   = ""
-  
-  apiResponse.on('data', function(chunk) {
-     recipeData += chunk
-  })
-  apiResponse.on('end', function() {
-    sendResponse(recipeData, res)
-  })
-}
-
-function getRecipes(ingredient, res){
-
-  //You need to provide an appid with your request.
-  //Many API services now require that clients register for an app id.
-
-    const options = {
-       host: 'www.food2fork.com',
-       path: `/api/search?key=${API_KEY}`
-    }
-
-    if (ingredient != null){
-      options.path = `/api/search?q=${ingredient}&key=${API_KEY}`
-    }
-    //retrieves data from food2fork
-    https.request(options, function(apiResponse){
-      //prob send to client here`````
-      parseData(apiResponse, res)
-    }).end()
-  }
 
 app.use(express.static(__dirname + ROOT_DIR)) //provide static server
 
