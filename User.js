@@ -1,5 +1,5 @@
 
-const Job = require('Job.js');
+const Job = require('./Job.js');
 
 var id = 1000
 
@@ -62,20 +62,23 @@ class User {
   //*********HOST FUNCTIONS************
   //function lets a user create a job.
   createJob(jobName, jobPrice) {
-    console.log("Creating new job ", jobName, " for ", jobPrice);
+    //user interface method to get info about new job here...
+    let job = new Job(this, jobName, "123 main", "ott", "can", "desc1", "category1", jobPrice);
+    console.log(job);
   }
   //function lets a user delete a job.
-  deleteJob(jobName, jobPrice) {
-    console.log("Deleting ", jobName, " for ", jobPrice);
+  deleteJob(id) {
+    console.log("Deleting job", id);
   }
 
     //*********JOBBER FUNCTIONS************
   //function lets a user accept a job that is listed.
-  acceptJob(jobName, jobPrice) {
-    console.log("Accepted ", jobName, " for ", jobPrice);
+  acceptJob(id) {
+    console.log("Accepted job", id);
+
   }
-  quitJob(jobName, jobPrice) {
-    console.log("Quitting ", jobName, " for ", jobPrice);
+  quitJob(id) {
+    console.log("Quitting job", id);
   }
 }
 
