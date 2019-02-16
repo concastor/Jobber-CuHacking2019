@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Testing</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+<div class="container">
+  <h1 class="bg-succes">Lets try a table</h1>
+  <small>this is just a test</small>
+  <table class = "table table-striped">
+      <thead>
+        <tr>
+            <th>Icon</th>
+            <th>Job Description</th>
+            <th>Clients name</th>
+            <th>Clients Email</th>
+            <th>Accept/Decline</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>gardener</td>
+            <td>steve</td>
+            <td>someone@example.com</td>
+            <td>
+                <div id = "btnwrap"> <button class ="clsActionButton" id="AcceptButton" onclick="AcceptButton_onclick();">  Accept </button></div> 
+            </td>
+        </tr>
+        <tr>
+             <td>magicain</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+            <td>
+                <div id = "btnwrap"> <button class ="clsActionButton" id="AcceptButton" onclick="AcceptButton_onclick();">  Accept </button></div> 
+            </td>
+         </tr> 
+         <tr>
+            <td>rock star</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+            <td>
+                <div id = "btnwrap"> <button class ="clsActionButton" id="AcceptButton" onclick="AcceptButton_onclick();">  Accept </button></div> 
+            </td>
+          </tr>
+    </tbody>
+  </table>    
+</div>
+</body>
+</html>
