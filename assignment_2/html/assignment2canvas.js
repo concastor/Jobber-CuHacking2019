@@ -1,8 +1,4 @@
-/*
-Client-side javascript for 2406 assignment 1
-COMP 2406 (c) Louis D. Nel 2018
 
-*/
 let words = [] //array of drag-able lyrics 
 let chords = [] //array of drag-able chords
 function findChords(song){
