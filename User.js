@@ -11,7 +11,7 @@ class User {
     this.country = country;
     this.address = address;
     this.phoneNum = phoneNum;
-    this.phoneNum = country;
+    this.country = country;
     this.postalCode = postalCode;
     this.rating = 5.0
   }
