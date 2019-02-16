@@ -59,19 +59,21 @@ class User {
 
   // Methods
 
+  //*********HOST FUNCTIONS************
   //function lets a user create a job.
   createJob(jobName, jobPrice) {
     console.log("Creating new job ", jobName, " for ", jobPrice);
-  }
-  //function lets a user accept a job that is listed.
-  acceptJob(jobName, jobPrice) {
-    console.log("Accepted ", jobName, " for ", jobPrice);
   }
   //function lets a user delete a job.
   deleteJob(jobName, jobPrice) {
     console.log("Deleting ", jobName, " for ", jobPrice);
   }
 
+    //*********JOBBER FUNCTIONS************
+  //function lets a user accept a job that is listed.
+  acceptJob(jobName, jobPrice) {
+    console.log("Accepted ", jobName, " for ", jobPrice);
+  }
   quitJob(jobName, jobPrice) {
     console.log("Quitting ", jobName, " for ", jobPrice);
   }
