@@ -1,0 +1,14 @@
+{
+  "name": "assignment4",
+  "version": "1.0.0",
+  "description": "server for assignement 4",
+  "main": "weather_server.js",
+  "scripts": {
+    "test": "node weather_server.js"
+  },
+  "author": "jake Richardson and ben vandenberg",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
