@@ -1,13 +1,26 @@
+
+const Job = require('Job.js');
+
+var id = 1000
+
 class User {
-  constructor(name, city, address, phoneNum, country, postalCode) {
+  constructor(name, city, address, phoneNum, country, postalCode, email) {
+    this.id = id++
     this.name = name;
     this.city = city;
+    this.country = country;
     this.address = address;
     this.phoneNum = phoneNum;
     this.phoneNum = country;
     this.postalCode = postalCode;
     this.rating = 5.0
   }
+
+  // Getter
+  getId() {
+    return this.id;
+  }
+
   // Getter
   getName() {
     return this.name;
@@ -36,10 +49,16 @@ class User {
     return this.postalCode;
   }
 
+  getEmail() {
+    return this.email;
+  }
+
   getRating() {
     return this.rating;
   }
-  // Method
+
+  // Methods
+
   //function lets a user create a job.
   createJob(jobName, jobPrice) {
     console.log("Creating new job ", jobName, " for ", jobPrice);
