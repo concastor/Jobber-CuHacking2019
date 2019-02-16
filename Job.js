@@ -1,17 +1,28 @@
 const User = require('./User.js');
 
+var id = 2000;
+
 class Job {
-  constructor(name, city) {
-    this.host = host;
+  constructor(title, address, city, country, description, category, price) {
+    this.id = id++;
+    this.accepted = false;
+
+    this.title = title;
+    this.description = description;
+    this.address = address;
     this.city = city;
+    this.country = country;
+    this.category = category;
+    this.price = price;
+
   }
   // Getter
-  getName() {
-    return this.name;
+  getTitle() {
+    return this.title;
   }
   // Method
-  createJob(jobName, jobPrice) {
-    console.log("creating new job ", jobName, " for ", jobPrice);
+  setAccepted() {
+    this.accepted = true;
   }
 }
 
