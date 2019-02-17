@@ -2,6 +2,20 @@
 let qstring = require('querystring')
 const express = require('express')
 const app = express()
+//DATABASE
+var firebase = require("firebase");
+
+var config = {
+    apiKey: "AIzaSyBzevPJQRYnIFrZ4Q0BZP8jaPrG459ZKYI",
+    authDomain: "jobber-6b282.firebaseapp.com",
+    databaseURL: "https://jobber-6b282.firebaseio.com",
+    projectId: "jobber-6b282",
+    storageBucket: "jobber-6b282.appspot.com",
+    messagingSenderId: "394757484924"
+  };
+firebase.initializeApp(config);
+
+var database = firebase.database();
 //const user = require("./User.js")
 //const job = require("./job.js")
 
@@ -28,7 +42,20 @@ app.get('/createJob', function (req, res) {
 app.get('/login', function (req, res) {
   //get requested url
 
+
   res.sendFile(path.join(__dirname, "html", "login.html"))
+  
+
+})
+app.get('/jobs', function (req, res) {
+  //get requested url
+  database.ref('jobs/').on("value", function(snapshot) {
+    console.log(snapshot.val());
+  }, function (errorObject) {
+    console.log("the read failed... "+ errorObject.code);
+  });
+
+  res.send(snapshot.val());
   
 
 })
