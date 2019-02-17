@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <title>Bootstrap Testing</title>
+  <script src="jquery-1.11.3.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src = 'server.js'></script>
 </head>
 <body>
 
@@ -48,7 +50,7 @@
             <td>steve</td>
             <td>someone@example.com</td>
             <td>
-                <div id = "btnwrap"> <button class ="clsActionButton" id="AcceptButton" onclick="AcceptButton_onclick();">  Accept </button></div> 
+                <input id="AcceptButton" type="button" value="Accept" onClick = "handleAcceptButton()"/> 
             </td>
         </tr>
         <tr>
@@ -56,7 +58,7 @@
             <td>Moe</td>
             <td>mary@example.com</td>
             <td>
-                <div id = "btnwrap"> <button class ="clsActionButton" id="AcceptButton" onclick="AcceptButton_onclick();">  Accept </button></div> 
+                <input id="AcceptButton" type="button" value="Accept" onClick = "handleAcceptButton()"/>
             </td>
          </tr> 
          <tr>
@@ -64,11 +66,12 @@
             <td>Dooley</td>
             <td>july@example.com</td>
             <td>
-                <div id = "btnwrap"> <button class ="clsActionButton" id="AcceptButton" onclick="AcceptButton_onclick();">  Accept </button></div> 
+                <input type="button" value="Accept" onClick = "handleAcceptButton()"/>
             </td>
           </tr>
     </tbody>
   </table>    
 </div>
+
 </body>
 </html>
