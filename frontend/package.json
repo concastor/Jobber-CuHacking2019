@@ -9,6 +9,7 @@
   "author": "jake Richardson and ben vandenberg",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-path": "^0.3.8",
     "firebase": "^5.8.3",

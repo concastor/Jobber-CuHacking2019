@@ -4,28 +4,37 @@ const express = require('express')
 const app = express()
 //DATABASE
 var firebase = require("firebase");
+const Job = require('./Job.js');
+//const User = require('./User.js');
 
 var config = {
-    apiKey: "AIzaSyBzevPJQRYnIFrZ4Q0BZP8jaPrG459ZKYI",
-    authDomain: "jobber-6b282.firebaseapp.com",
-    databaseURL: "https://jobber-6b282.firebaseio.com",
-    projectId: "jobber-6b282",
-    storageBucket: "jobber-6b282.appspot.com",
-    messagingSenderId: "394757484924"
-  };
+  apiKey: "AIzaSyBzevPJQRYnIFrZ4Q0BZP8jaPrG459ZKYI",
+  authDomain: "jobber-6b282.firebaseapp.com",
+  databaseURL: "https://jobber-6b282.firebaseio.com",
+  projectId: "jobber-6b282",
+  storageBucket: "jobber-6b282.appspot.com",
+  messagingSenderId: "394757484924"
+};
 firebase.initializeApp(config);
 
 var database = firebase.database();
 //const user = require("./User.js")
 //const job = require("./job.js")
 
-
-const PORT = process.env.PORT || 3000
-app.use(express.static('html'))
-app.use(express.json())
-var path = require("path")
-app.use(express.static(path.join(__dirname, '/frontend')))
-
+var bodyParser = require('body-parser')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+    
+  
+  
+  const PORT = process.env.PORT || 3000
+  app.use(express.static('html'))
+  app.use(express.json())
+  var path = require("path")
+  app.use(express.static(path.join(__dirname, '/frontend')))
+  //app.use(express.json());  
 
 
 
@@ -52,6 +61,7 @@ app.get('/jobs', function (req, res) {
   //get requested url
   database.ref('jobs/').on("value", function(snapshot) {
     console.log(snapshot.val());
+    //delete req.body
     res.send(snapshot.val());
   }, function (errorObject) {
     console.log("the read failed... "+ errorObject.code);
@@ -68,18 +78,18 @@ app.get('/', function (req, res) {
 
 })
 
+
+
 //handle POST route
-app.post('/', function (req, res) {
-  let reqData = ''
-  req.on('data', function(chunk) {
-    reqData += chunk
-  })
-  req.on('end', function() {
-    console.log(reqData);
-    var queryParams = qstring.parse(reqData)
-    console.log(queryParams)
-    getRecipes(queryParams.ingredient, res)
-  })
+app.post('/create', function (req, res) {
+  let i
+  console.log(req.body.myData)
+  let jobber = req.body.myData
+  let job = new Job("placeholder", jobber.title, jobber.adress, jobber.cont, "Canada",jobber.desc, jobber.category, jobber.price);
+  //console.log(job);
+  database.ref('jobs/' + job.id).set(job);
+  res.send(jobber)
+  //console.log("got past firebase add")
 })
 app.use(redirectUnmatched)
 
