@@ -17,6 +17,14 @@ app.use(express.static(path.join(__dirname, '/frontend')))
 //app.use(express.static(__dirname + ROOT_DIR)) //provide static server
 
 //handle GET route
+
+app.get('/createJob', function (req, res) {
+  //get requested url
+
+  res.sendFile(path.join(__dirname, "html", "jobCreation.html"))
+  
+
+})
 app.get('/login', function (req, res) {
   //get requested url
 
