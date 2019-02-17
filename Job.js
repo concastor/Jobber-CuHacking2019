@@ -3,12 +3,12 @@ const User = require('./User.js');
 var id = 2000;
 
 class Job {
-  constructor(host, jobber, title, address, city, country, description, category, price) {
+  constructor(host, title, address, city, country, description, category, price) {
     this.id = id++;
     this.accepted = false;
 
     this.host = host;
-    this.jobber = jobber;
+    this.jobber = null;
 
     this.title = title;
     this.description = description;
