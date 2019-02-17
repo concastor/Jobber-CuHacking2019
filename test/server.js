@@ -42,15 +42,15 @@ function redirectUnmatched(req, res) {
   res.redirect("http://localhost:3000/");
 }
 
+
+function handleAcceptButton(){
+  console.log("shit")
+}
+
 app.listen(PORT, (error) => {
   if (error)
     return console.log(error)
   console.log(`Server is listening on PORT ${PORT} CNTL-C to quit`)
   console.log(`To Test:`)
-  console.log(`http://localhost:3000/?ingredient=tomato`)
-  console.log('http://localhost:3000/recipes.html')
-  console.log('http://localhost:3000/recipes')
-  console.log('http://localhost:3000/index.html')
-  console.log('http://localhost:3000/')
-  console.log('http://localhost:3000')
+  console.log(`http://localhost:3000/`)
 })
