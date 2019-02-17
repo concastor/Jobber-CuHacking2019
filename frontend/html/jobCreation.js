@@ -23,8 +23,8 @@ function handleSubmitJobButton(){
              window.location.replace("/main.html");
             },
             'json'); // response data format
+
             
-       
       
        
     
