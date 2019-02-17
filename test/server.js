@@ -1,15 +1,13 @@
 
-let http = require('http')
-let url = require('url')
 let qstring = require('querystring')
-const https = require('https') //food2fork now requires https
 const express = require('express')
 const app = express()
 //const user = require("./User.js")
 //const job = require("./job.js")
 
 const PORT = process.env.PORT || 3000
-
+app.use(express.static('html'))
+app.use(express.json())
 
 
 //app.use(express.static(__dirname + ROOT_DIR)) //provide static server
@@ -18,7 +16,7 @@ const PORT = process.env.PORT || 3000
 app.get('/', function (req, res) {
   //get requested url
 
-    res.sendFile(__dirname +'/test.html');
+    res.sendFile(__dirname +'/html/test.html');
 
 })
 
@@ -40,11 +38,6 @@ app.use(redirectUnmatched)
 //all unknown urls redirect to same location
 function redirectUnmatched(req, res) {
   res.redirect("http://localhost:3000/");
-}
-
-
-function handleAcceptButton(){
-  console.log("shit")
 }
 
 app.listen(PORT, (error) => {
