@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Enter Job information</h2>
+  
+  <form>
+    <div class="form-group">
+      <label for="usr">Title:</label>
+      <input type="text" class="form-control" id="title">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Adress:</label>
+      <input type="password" class="form-control" id="adress">
+    </div>
+    <div class="form-group">
+      <label for="pwd">country:</label>
+      <input type="password" class="form-control" id="cntry">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Description:</label>
+      <input type="password" class="form-control" id="dsc">
+    </div>
+    <div class="form-group">
+      <label for="pwd">price:</label>
+      <input type="password" class="form-control" id="price">
+    </div>
+    <div><input type="button" value="Submit" onClick="handleSubmitJobButton()"></div> 
+  </form>
+</div>
+<script src='jobCreation.js'></script>
+</body>
+</html>

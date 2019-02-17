@@ -17,7 +17,6 @@ app.get('/', function (req, res) {
   //get requested url
 
     res.sendFile(__dirname +'/html/test.html');
-
 })
 
 //handle POST route
