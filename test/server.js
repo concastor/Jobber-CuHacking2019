@@ -1,15 +1,13 @@
 
-let http = require('http')
-let url = require('url')
 let qstring = require('querystring')
-const https = require('https') //food2fork now requires https
 const express = require('express')
 const app = express()
 //const user = require("./User.js")
 //const job = require("./job.js")
 
 const PORT = process.env.PORT || 3000
-
+app.use(express.static('html'))
+app.use(express.json())
 
 
 //app.use(express.static(__dirname + ROOT_DIR)) //provide static server
@@ -18,7 +16,7 @@ const PORT = process.env.PORT || 3000
 app.get('/', function (req, res) {
   //get requested url
 
-    res.sendFile(__dirname +'/test.html');
+    res.sendFile(__dirname +'/html/test.html');
 
 })
 
@@ -47,10 +45,5 @@ app.listen(PORT, (error) => {
     return console.log(error)
   console.log(`Server is listening on PORT ${PORT} CNTL-C to quit`)
   console.log(`To Test:`)
-  console.log(`http://localhost:3000/?ingredient=tomato`)
-  console.log('http://localhost:3000/recipes.html')
-  console.log('http://localhost:3000/recipes')
-  console.log('http://localhost:3000/index.html')
-  console.log('http://localhost:3000/')
-  console.log('http://localhost:3000')
+  console.log(`http://localhost:3000/`)
 })
