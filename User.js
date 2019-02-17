@@ -1,3 +1,18 @@
+//DATABASE
+var firebase = require("firebase");
+
+var config = {
+    apiKey: "AIzaSyBzevPJQRYnIFrZ4Q0BZP8jaPrG459ZKYI",
+    authDomain: "jobber-6b282.firebaseapp.com",
+    databaseURL: "https://jobber-6b282.firebaseio.com",
+    projectId: "jobber-6b282",
+    storageBucket: "jobber-6b282.appspot.com",
+    messagingSenderId: "394757484924"
+  };
+firebase.initializeApp(config);
+
+var database = firebase.database();
+//var ref = database.ref('jobs/');
 
 const Job = require('./Job.js');
 
@@ -13,7 +28,7 @@ class User {
     this.phoneNum = phoneNum;
     this.country = country;
     this.postalCode = postalCode;
-    this.rating = 5.0
+    this.rating = 5.0;
   }
 
   // Getter
@@ -64,7 +79,12 @@ class User {
   createJob(jobName, jobPrice) {
     //user interface method to get info about new job here...
     let job = new Job(this, jobName, "123 main", "ott", "can", "desc1", "category1", jobPrice);
-    console.log(job);
+    //console.log(job);
+
+    database.ref('jobs/' + job.id).set(job);
+    //console.log("got past firebase add")
+
+    return job;
   }
   //function lets a user delete a job.
   deleteJob(id) {
@@ -76,7 +96,17 @@ class User {
   acceptJob(id) {
     console.log("Accepted job", id);
 
+    database.ref('jobs/' + id).update({accepted: true, jobber: this});
+
+    //READ DATA
+    database.ref('jobs/'+id).once("value", function(snapshot) {
+      console.log(snapshot.val());
+    }, function (errorObject) {
+      console.log("the read failed... "+ errorObject.code);
+    });
+
   }
+
   quitJob(id) {
     console.log("Quitting job", id);
   }

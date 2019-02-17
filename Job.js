@@ -1,7 +1,7 @@
 const User = require('./User.js');
 
 var id = 2000;
-
+ 
 class Job {
   constructor(host, title, address, city, country, description, category, price) {
     this.id = id++;
