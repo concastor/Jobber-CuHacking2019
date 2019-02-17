@@ -14,12 +14,15 @@ firebase.initializeApp(config);
 var database = firebase.database();
 //var ref = database.ref('jobs/');
 
+var flag = false;
+
 const Job = require('./Job.js');
 
 var id = 1000
 
 class User {
-  constructor(name, city, address, phoneNum, country, postalCode, email) {
+  constructor(name, city, address, phoneNum, country, postalCode, email, password) {
+    /*
     this.id = id++
     this.name = name;
     this.city = city;
@@ -29,6 +32,55 @@ class User {
     this.country = country;
     this.postalCode = postalCode;
     this.rating = 5.0;
+    */
+    this.email = email;
+    this.password = password;
+
+  }
+
+  createAccount(email, password) {
+
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      console.log("creating new user with ", email, password)
+      var errorCode = error.code;
+      var errorMessage = error.message;
+
+    });
+  }
+
+  getCurrentUser() {
+
+    /*
+    console.log("trying to get current user")
+
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        console.log("logged in")
+        return firebase.auth().currentUser
+      } else {
+        console.log("no one is logged in")
+      }
+
+      //let user = firebase.auth().currentUser;
+      console.log("trying to print user: ", user);
+    });
+    */
+
+    /*
+    firebase.auth().onAuthStateChanged( user => {
+      if (user) {return firebase.auth().currentUser}
+    });*/
+
+    /*
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(function() {
+      return firebase.auth().onAuthStateChanged();
+    }).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });*/
+
+    console.log("firebase hates you you don't get the current user stupid bitch")
+
   }
 
   // Getter
@@ -113,3 +165,29 @@ class User {
 }
 
 module.exports = User;
+
+
+
+/*
+//CHECK IF LOGGED IN
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log("logged in")
+  } else {
+    console.log("no one is logged in")
+  }
+
+  //let user = firebase.auth().currentUser;
+  console.log("trying to print user: ", user);
+});
+*/
+
+/*
+//LOG IN USER
+firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  console.log("signed in with ", email, password)
+  var errorCode = error.code;
+  var errorMessage = error.message;
+
+});
+*/
