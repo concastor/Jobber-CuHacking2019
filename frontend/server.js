@@ -19,6 +19,7 @@ var database = firebase.database();
 //const user = require("./User.js")
 //const job = require("./job.js")
 
+
 const PORT = process.env.PORT || 3000
 app.use(express.static('html'))
 app.use(express.json())
@@ -51,11 +52,11 @@ app.get('/jobs', function (req, res) {
   //get requested url
   database.ref('jobs/').on("value", function(snapshot) {
     console.log(snapshot.val());
+    res.send(snapshot.val());
   }, function (errorObject) {
     console.log("the read failed... "+ errorObject.code);
   });
 
-  res.send(snapshot.val());
   
 
 })
