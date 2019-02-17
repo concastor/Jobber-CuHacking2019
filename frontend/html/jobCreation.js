@@ -18,7 +18,7 @@ function handleSubmitJobButton(){
 
     $.post('create',  // url
     { myData: newnewJob  }, // data to be submit
-    function(data, status) {   // success callback function
+    function(data, status) {  // success callback function
              alert('status: ' + status + ', data: ' + data.responseData);
              window.location.replace("/main.html");
             },
